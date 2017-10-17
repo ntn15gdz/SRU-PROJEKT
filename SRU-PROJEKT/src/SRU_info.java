@@ -1,5 +1,6 @@
 import java.util.Observable;
 
+@SuppressWarnings("deprecation")
 public class SRU_info extends Observable {
 
 	private String[] dataBeskrivning = new String[20];
