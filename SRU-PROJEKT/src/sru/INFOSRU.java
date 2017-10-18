@@ -9,9 +9,17 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+
+
+import java.io.IOException;
+
 import java.awt.event.ActionEvent;
 
 public class INFOSRU extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textF1_2;
 	private JTextField textF1_4;
 	private JTextField textF1_5;
@@ -28,11 +36,13 @@ public class INFOSRU extends JPanel {
 	private JTextField textF1_18;
 	private JTextField textF1_19;
 	private JButton btnSkicka;
+	private String mintext;
 
 	/**
 	 * Create the panel.
+	 * @throws IOException 
 	 */
-	public INFOSRU() {
+	public INFOSRU() throws IOException {
 		setLayout(new MigLayout("", "[][][grow]", "[][][][][][][][][][][][][][][][][][][]"));
 		
 		JLabel post2 = new JLabel("2. #PRODUKT");
@@ -145,11 +155,24 @@ public class INFOSRU extends JPanel {
 		btnSkicka.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				SRU_info nyinfo = new SRU_info(textF1_2.getText(),);
+	
+				SRU_info nyinfo = new SRU_info(textF1_2.getText(), textF1_7.getText(),textF1_10.getText(),textF1_11.getText(),textF1_13.getText(),textF1_14.getText());
+							mintext = nyinfo.getSruText();		
+							try {
+								MainGUI.printToFile();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+				
 				
 			}
 		});
 		add(btnSkicka, "cell 0 17");
 
 	}
+	public String textt() {
+		return mintext;
+	}
+	
 }
