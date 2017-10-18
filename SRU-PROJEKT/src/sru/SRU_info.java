@@ -2,7 +2,7 @@ package sru;
 
 
 
-
+//ghjklsd
 public class SRU_info {
 
 	private String[] dataBeskrivning = new String[20];
