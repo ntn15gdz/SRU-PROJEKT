@@ -1,3 +1,6 @@
+package sru;
+
+
 
 
 import javax.swing.JPanel;

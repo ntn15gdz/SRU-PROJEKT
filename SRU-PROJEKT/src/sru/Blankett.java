@@ -1,3 +1,5 @@
+package sru;
+
 
 
 import javax.swing.JPanel;
@@ -7,6 +9,10 @@ import javax.swing.JTextField;
 import java.awt.Font;
 
 public class Blankett extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textField1_1;
 	private JTextField textField1_2;
 	private JTextField textField1_3;

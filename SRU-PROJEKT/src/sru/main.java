@@ -1,3 +1,5 @@
+package sru;
+
 
 
 public class main {

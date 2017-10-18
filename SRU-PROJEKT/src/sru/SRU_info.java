@@ -1,3 +1,5 @@
+package sru;
+
 import java.util.Observable;
 
 @SuppressWarnings("deprecation")
