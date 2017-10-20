@@ -8,7 +8,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-public class INK2R extends JPanel {
+public class INK2RView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textField2_1;
 	private JTextField textField2_27;
 	private JTextField textField2_2;
@@ -129,7 +133,7 @@ public class INK2R extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public INK2R() {
+	public INK2RView() {
 		setLayout(new MigLayout("", "[grow][grow][][grow]", "[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]"));
 		
 		label2_1_12 = new JLabel("Tillg\u00E5ngar/Anl\u00E4ggningstillg\u00E5ngar ");

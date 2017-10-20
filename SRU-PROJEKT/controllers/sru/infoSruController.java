@@ -5,10 +5,10 @@ public class infoSruController {
 	namn, adress, postnr,postort, avdelning,kontakt,email,telefon,fax;
 	
 	
-	public boolean isCorrectInfoSru(String produkt, String mediaId, String skapad, String program, String filnamn,
+/*	public boolean isCorrectInfoSru(String produkt, String mediaId, String skapad, String program, String filnamn,
 			String orgnr, String namn, String adress, String postnr, String postort, String avdelning, String kontakt,
 			String email, String telefon, String fax) {
-		if(orgnr.length()€	))
+		
 		this.produkt = produkt;
 		this.mediaId = mediaId;
 		this.skapad = skapad;
@@ -25,6 +25,6 @@ public class infoSruController {
 		this.telefon = telefon;
 		this.fax = fax;
 	}
-	
+	**/
 	
 }
