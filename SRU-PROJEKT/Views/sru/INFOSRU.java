@@ -36,7 +36,7 @@ public class INFOSRU extends JPanel {
 	private JTextField textF1_18;
 	private JTextField textF1_19;
 	private JButton btnSkicka;
-	private String mintext;
+	private static String mintext;
 
 	/**
 	 * Create the panel.
@@ -157,7 +157,16 @@ public class INFOSRU extends JPanel {
 				
 	
 				SRU_info nyinfo = new SRU_info(textF1_2.getText(), textF1_7.getText(),textF1_10.getText(),textF1_11.getText(),textF1_13.getText(),textF1_14.getText());
-							mintext = nyinfo.getSruText();		
+				nyinfo.setMediaId(textF1_4.getText());
+				nyinfo.setSkapad(textF1_5.getText());
+				nyinfo.setProgram(textF1_6.getText());
+				nyinfo.setAdress(textF1_12.getText());
+				nyinfo.setAvdelning(textF1_15.getText());
+				nyinfo.setKontakt(textF1_16.getText());
+				nyinfo.setEmail(textF1_17.getText());
+				nyinfo.setTelefon(textF1_18.getText());
+				nyinfo.setFax(textF1_19.getText());
+				mintext = nyinfo.getSruText();		
 							try {
 								MainGUI.printToFile();
 							} catch (IOException e1) {

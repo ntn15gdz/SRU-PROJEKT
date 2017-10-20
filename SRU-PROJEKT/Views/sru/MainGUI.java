@@ -61,7 +61,7 @@ public class MainGUI extends JFrame {
 	}
 	public static void printToFile() throws IOException {
 		Candidateoutput.write(info.textt());
-		Candidateoutput.close();
+		
 	}
 
 }
