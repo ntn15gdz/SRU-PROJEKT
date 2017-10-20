@@ -13,18 +13,20 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
+import javax.swing.JScrollBar;
 
 public class MainGUI extends JFrame {
-
+	private static INK2RView blankett; // statisk för att ifall man hade flera av samma då hade det vart inte bra att ha statisk för då hade ändrat alla eftersom nu är det bara en så det gör inget.
 	private static INFOSRU info;
 	private static Writer Candidateoutput = null;
 	
 	private static final long serialVersionUID = 1L;
+	private static File candidatefile;
 
 	
 	public static void main(String[] args) throws IOException {
 		
-		File Candidatefile = new File("info.sru");
+		candidatefile = new File("info.sru");
 		
 					MainGUI frame = new MainGUI();
 					frame.setVisible(true);
@@ -37,7 +39,7 @@ public class MainGUI extends JFrame {
 	public MainGUI() throws IOException {
 		
 		JPanel contentPane;
-		
+		blankett = new INK2RView();
 		info = new INFOSRU();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 677);
@@ -52,6 +54,7 @@ public class MainGUI extends JFrame {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.NORTH);
 		tabbedPane.add(info);
+		tabbedPane.add(blankett);
 		
 		
 		

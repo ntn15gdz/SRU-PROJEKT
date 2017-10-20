@@ -709,7 +709,10 @@ public class INK2RView extends JPanel {
 		textField3_28 = new JTextField();
 		add(textField3_28, "cell 3 43,growx");
 		textField3_28.setColumns(10);
-
+		
+		
+	
+				
 	}
 
 }
