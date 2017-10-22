@@ -17,8 +17,8 @@ public INK2R(String blankett, String identitet, String namn	) {
 	this.namn = this.namn + namn;
 	}
 
-public void addUppgift(String fieldCode, String value) {
-	this.blankettFields.add("#UPPGIFT" + " " + fieldCode + " " + value );
+public void addUppgift( String value) {
+	this.blankettFields.add("#UPPGIFT" + " " + value );
 }
 
 @Override

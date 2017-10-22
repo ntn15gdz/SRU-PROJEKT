@@ -7,8 +7,8 @@ public class INK2R_Controller {
 	public INK2R_Controller(String blankett, String identitet, String namn) {
 		ink2r = new INK2R(blankett,identitet,namn);
 	}
-	public void addfields(String fields, String value){
-		ink2r.addUppgift(fields, value);
+	public void addfields( String value){
+		ink2r.addUppgift(value);
 	}
 	public String getINK2R(){
 	return	ink2r.toString();
