@@ -3,6 +3,9 @@ package sru;
 
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
@@ -17,6 +20,7 @@ public class INK2RView extends JPanel {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
 	private UppgiftField textField2_1;
 	private UppgiftField textField2_27;
@@ -815,6 +819,7 @@ public class INK2RView extends JPanel {
 		textField3_28 = new UppgiftField("7550");
 		add(textField3_28, "10, 86, fill, top");
 		textField3_28.setColumns(10);
+		
 		
 		for (Component c : getComponents()) {
 		    if (c instanceof UppgiftField) { 
