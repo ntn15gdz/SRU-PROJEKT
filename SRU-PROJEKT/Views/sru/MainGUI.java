@@ -12,8 +12,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.JMenuBar;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class MainGUI extends JFrame {
 	private static INK2RView blankett; // statisk för att ifall man hade flera av samma då hade det vart inte bra att ha statisk för då hade ändrat alla eftersom nu är det bara en så det gör inget.
@@ -38,11 +40,13 @@ public class MainGUI extends JFrame {
 	
 	public MainGUI() throws IOException {
 		
+		
 		JPanel contentPane;
 		blankett = new INK2RView();
 		info = new INFOSRU();
+		JScrollPane scrollablePane = new JScrollPane(blankett, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 677);
+		setBounds(100, 100, 977, 726);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -54,7 +58,7 @@ public class MainGUI extends JFrame {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.NORTH);
 		tabbedPane.add(info);
-		tabbedPane.add(blankett);
+		tabbedPane.add(scrollablePane);
 		
 		
 		
