@@ -139,7 +139,7 @@ public class INK2RView extends JPanel {
 	private UppgiftField textField3_28;
 	private JLabel label2_1_12;
 	private JLabel label;
-
+//dssa
 	/**
 	 * Create the panel.
 	 */
