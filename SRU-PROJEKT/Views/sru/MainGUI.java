@@ -42,11 +42,14 @@ public class MainGUI extends JFrame {
 		
 		
 		JPanel contentPane;
-		blankett = new INK2RView();
 		info = new INFOSRU();
 		JScrollPane scrollablePane = new JScrollPane(blankett, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+<<<<<<< HEAD
 		setBounds(100, 100, 977, 726);
+=======
+		setBounds(100, 100, 1024, 720);
+>>>>>>> branch 'master' of https://github.com/ntn15gdz/SRU-projekt.git
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -58,7 +61,15 @@ public class MainGUI extends JFrame {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.NORTH);
 		tabbedPane.add(info);
+<<<<<<< HEAD
 		tabbedPane.add(scrollablePane);
+=======
+		
+		JScrollPane scrollPane = new JScrollPane();
+		tabbedPane.addTab("New tab", null, scrollPane, null);
+		blankett = new INK2RView();
+		tabbedPane.add(blankett);
+>>>>>>> branch 'master' of https://github.com/ntn15gdz/SRU-projekt.git
 		
 		
 		
