@@ -1,6 +1,6 @@
 package sru;
 
-import java.awt.BorderLayout;
+
 import java.io.BufferedWriter;
 
 import java.io.FileOutputStream;
@@ -17,12 +17,14 @@ import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JMenuBar;
-import javax.swing.JScrollPane;
+
 import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+
 
 public class MainGUI extends JFrame {
 	private static INK2RView blankett; // statisk för att ifall man hade flera av samma då hade det vart inte bra att ha statisk för då hade ändrat alla eftersom nu är det bara en så det gör inget.
@@ -50,7 +52,7 @@ public class MainGUI extends JFrame {
 		
 		info = new INFOSRU();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1024, 720);
+		setBounds(100, 100, 1204, 676);
 		JFileChooser fileChooser = new JFileChooser();
 		
 		
@@ -65,17 +67,24 @@ public class MainGUI extends JFrame {
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 	    setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		contentPane.add(tabbedPane, BorderLayout.NORTH);
+		tabbedPane.setBounds(5, 5, 1180, 600);
+		contentPane.add(tabbedPane);
 		tabbedPane.add("info",info);
 		
 		
 		
 		blankett = new INK2RView();
-		tabbedPane.add("blankett",blankett);
+		//tabbedPane.add("blankett",blankett);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportView(blankett);
+	    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+	 
+		tabbedPane.addTab("New tab", null, scrollPane, null);
 		
 		JButton btnSparaSom = new JButton("spara som..");
 		mnNewMenu.add(btnSparaSom);
