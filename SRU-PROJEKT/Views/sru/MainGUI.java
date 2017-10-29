@@ -32,7 +32,6 @@ public class MainGUI extends JFrame {
 	private static INK2RView blankett; // statisk för att ifall man hade flera av samma då hade det vart inte bra att ha statisk för då hade ändrat alla eftersom nu är det bara en så det gör inget.
 	private static INFOSRU info;
 	private static JFileChooser fileChooser;
-	private static String path;
 	private static final long serialVersionUID = 1L;
 	
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
@@ -79,7 +78,8 @@ public class MainGUI extends JFrame {
 		scrollPane.setViewportView(blankett);
 	    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	 
-		tabbedPane.addTab("New tab", null, scrollPane, null);
+		tabbedPane.addTab("INK2R", null, scrollPane, null);
+	
 		
 		
 		
@@ -93,8 +93,27 @@ public class MainGUI extends JFrame {
 		              new FileOutputStream(fileChooser.getSelectedFile()), "utf-8"))) {
 		   writer.write(text);
 		}
-		
-	}
+			}
+	
 
 }
+	public static void ShowSRUFile() throws IOException {
+		fileChooser = new JFileChooser();
+		int val= fileChooser.showOpenDialog(null);
+		if(val == JFileChooser.APPROVE_OPTION) {
+			ReadINK2R readtextpanel = new ReadINK2R(fileChooser.getSelectedFile());
+			readtextpanel.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+			readtextpanel.setVisible(true);
+		
+	}}
+public static void LoadSRUFile() throws IOException {
+	fileChooser = new JFileChooser();
+	int val= fileChooser.showOpenDialog(null);
+	if(val == JFileChooser.APPROVE_OPTION) {
+		LoadSRU readtextpanel = new LoadSRU(fileChooser.getSelectedFile());
+		readtextpanel.LoadInfo();
+	}
+	
+		
+	}
 }

@@ -15,8 +15,11 @@ public UppgiftField(String id) {
 public String getId() {
 	return id;
 }
-public String getUppgift() {
-	String uppgift = id + " " + getText();
-	return uppgift;
+public String[] getUppgift() {
+	String[] uppgift = new String[2];
+		uppgift[0]=id;
+		uppgift[1]= getText();
+		return uppgift;
 }
+
 }

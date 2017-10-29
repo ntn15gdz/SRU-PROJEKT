@@ -16,21 +16,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
+
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.border.TitledBorder;
-import net.miginfocom.swing.MigLayout;
-import java.awt.GridLayout;
 
 
 
@@ -39,7 +29,7 @@ public class INK2RView extends JPanel {
 	/**
 	 * 
 	 */
-	private INK2R form;
+	private INK2R_Controller form;
 	
 	private static final long serialVersionUID = 1L;
 	private UppgiftField textField2_1;
@@ -100,6 +90,7 @@ public class INK2RView extends JPanel {
 	private JLabel label2_25;
 	private JLabel label2_26;
 	private JLabel titel3_1_14;
+	private JLabel blankettperiod;
 	private JLabel lable3_1;
 	private UppgiftField textField3_1;
 	private JLabel lable3_2;
@@ -195,21 +186,24 @@ public class INK2RView extends JPanel {
 	private JTextField datFramstField;
 	private JTextField from;
 	private JTextField till;
-	
+	private JTextField namnField;
+	private JTextField blankett;
 	public INK2RView() {
 		setPreferredSize(new Dimension(939, 1941));
 		
 		JButton btnSpara = new JButton("spara");
-		btnSpara.setBounds(6, 6, 59, 23);
+		btnSpara.setBounds(51, 29, 59, 23);
 		btnSpara.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				form = new INK2R("ink2r", "46541331", "sdfsdfsdf");
+				
+				form = new INK2R_Controller(blankett.getText(), orgnrField.getText(), datFramstField.getText(), namnField.getText());
 				for (Component c : getComponents()) {
 				    if (c instanceof JPanel) { 
 				    	for(Component f : ((JPanel) c).getComponents()) {
 				    		if(f instanceof UppgiftField) {
-				    		String temp = ((UppgiftField) f).getUppgift();
-					    	form.addUppgift(temp);}
+				    		String [] temp = ((UppgiftField) f).getUppgift();
+					    	form.addfields(temp);
+				    		}
 				    	}
 				       
 				       
@@ -217,7 +211,7 @@ public class INK2RView extends JPanel {
 				}
 				
 				try {
-					MainGUI.printToFile("//blankett.sru", form.toString());
+					MainGUI.printToFile("//blanketter.sru", form.toString());
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -240,7 +234,11 @@ public class INK2RView extends JPanel {
 		JLabel label2_1 = new JLabel("<html> <b>Immateriella anl\u00E4ggningstillg\u00E5ngar</b> <br>2.1 Koncessioner, patent, licenser, varum\u00E4rken, hyresr\u00E4tter, goodwill och liknande r\u00E4ttigheter</html>");
 		label2_1.setBounds(7, 17, 254, 42);
 		panel.add(label2_1);
-		
+		blankett = new JTextField();
+		blankett.setText("2017P1");
+		blankett.setLocation(159, 83);
+		blankett.setSize(95, 28);
+		add(blankett);
 		textField2_1 = new UppgiftField("7201");
 		textField2_1.setBounds(261, 24, 138, 28);
 		panel.add(textField2_1);
@@ -250,6 +248,11 @@ public class INK2RView extends JPanel {
 		label2_2.setBounds(7, 69, 254, 28);
 		panel.add(label2_2);
 		
+		blankettperiod = new JLabel();
+		blankettperiod.setText("period");
+		blankettperiod.setLocation(159, 72);
+		blankettperiod.setSize(80, 14);
+		add(blankettperiod);
 		textField2_2 = new UppgiftField("7202");
 		textField2_2.setBounds(261, 63, 138, 27);
 		panel.add(textField2_2);
@@ -370,11 +373,6 @@ public class INK2RView extends JPanel {
 		separator_4.setForeground(Color.BLACK);
 		separator_4.setBounds(0, 170, 420, 1);
 		panel.add(separator_4);
-		
-		JSeparator separator_5 = new JSeparator();
-		separator_5.setForeground(Color.BLACK);
-		separator_5.setBounds(0, 265, 420, 1);
-		panel.add(separator_5);
 		
 		JSeparator separator_6 = new JSeparator();
 		separator_6.setForeground(Color.BLACK);
@@ -1530,6 +1528,29 @@ public class INK2RView extends JPanel {
 		JLabel lblTom = new JLabel("T.o.m");
 		lblTom.setBounds(326, 140, 46, 14);
 		add(lblTom);
+		
+		namnField = new JTextField();
+		namnField.setBounds(49, 83, 100, 28);
+		add(namnField);
+		namnField.setColumns(10);
+		
+		JLabel lblNamn = new JLabel("namn");
+		lblNamn.setBounds(51, 72, 46, 14);
+		add(lblNamn);
+		
+		JButton btnVisa = new JButton("visa Filen");
+		btnVisa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					MainGUI.ShowSRUFile();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnVisa.setBounds(135, 29, 59, 23);
+		add(btnVisa);
 		
 		
 		

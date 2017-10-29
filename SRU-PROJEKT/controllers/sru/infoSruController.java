@@ -1,30 +1,41 @@
 package sru;
 
 public class infoSruController {
-	private String produkt, mediaId, skapad, program, filnamn, orgnr,
-	namn, adress, postnr,postort, avdelning,kontakt,email,telefon,fax;
 	
-	
-/*	public boolean isCorrectInfoSru(String produkt, String mediaId, String skapad, String program, String filnamn,
-			String orgnr, String namn, String adress, String postnr, String postort, String avdelning, String kontakt,
-			String email, String telefon, String fax) {
+	public infoSruController() {
 		
-		this.produkt = produkt;
-		this.mediaId = mediaId;
-		this.skapad = skapad;
-		this.program = program;
-		this.filnamn = filnamn;
-		this.orgnr = orgnr;
-		this.namn = namn;
-		this.adress = adress;
-		this.postnr = postnr;
-		this.postort = postort;
-		this.avdelning = avdelning;
-		this.kontakt = kontakt;
-		this.email = email;
-		this.telefon = telefon;
-		this.fax = fax;
 	}
-	**/
+	public String skapaInfoSRU(String produkt, String mediaid, String skapad,String adress, String program, String filnamn, String orgnr,String namn,String postnr,String ort,String avdelning,String kontakt,String email,String telefon,String fax) {
+		SRU_info infofil = new SRU_info(produkt, filnamn, orgnr, namn, postnr, ort);
+		if(mediaid.length() > 0) {
+			infofil.setMediaId(mediaid);
+		}
+		if(skapad.length() > 0) {
+			infofil.setSkapad(skapad);
+		}
+		if(program.length() > 0 ) {
+			infofil.setProgram(program);
+		}
+		if(adress.length() > 0 ) {
+			infofil.setAdress(adress);
+		}
+		if(avdelning.length() > 0) {
+			infofil.setAvdelning(avdelning);
+		}
+		if(kontakt.length() > 0 ) {
+			infofil.setKontakt(kontakt);
+		}
+		if(email.length() > 0 ) {
+			infofil.setEmail(email);
+		}
+		if(telefon.length() > 0 ) {
+			infofil.setTelefon(telefon);
+		}
+		if(fax.length() >0 ) {
+			infofil.setFax(fax);
+		}
+		return  infofil.getSruText();
+	}
+	
 	
 }

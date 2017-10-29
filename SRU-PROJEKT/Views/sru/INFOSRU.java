@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 import net.miginfocom.swing.MigLayout;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class INFOSRU extends JPanel {
 	/**
@@ -38,143 +40,172 @@ public class INFOSRU extends JPanel {
 	private JTextField textF1_18;
 	private JTextField textF1_19;
 	private JButton btnSkicka;
-	private static String mintext;
+
 	private JLabel label;
+	private JButton btnVisaFil;
+	
+	private JButton btnLaddaFil;
 
 	/**
 	 * Create the panel.
 	 * @throws IOException 
 	 */
 	public INFOSRU() throws IOException {
-		setLayout(new MigLayout("", "[12px][145px][212px]", "[20px][20px][20px][20px][20px][20px][20px][20px][20px][20px][20px][20px][20px][20px][20px][23px]"));
+		setLayout(null);
 		
 		JLabel post2 = new JLabel("PRODUKT");
-		add(post2, "cell 1 0,alignx left,aligny center");
+		post2.setBounds(23, 10, 47, 14);
+		add(post2);
 		
 		textF1_2 = new JTextField();
-		add(textF1_2, "cell 2 0,growx,aligny top");
+		textF1_2.setBounds(172, 7, 212, 20);
+		add(textF1_2);
 		textF1_2.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("MEDIAID (ej obligatorisk)");
-		add(lblNewLabel_3, "cell 1 1,alignx left,aligny center");
+		lblNewLabel_3.setBounds(23, 34, 120, 14);
+		add(lblNewLabel_3);
 		
 		textF1_4 = new JTextField();
-		add(textF1_4, "cell 2 1,growx,aligny top");
+		textF1_4.setBounds(172, 31, 212, 20);
+		add(textF1_4);
 		textF1_4.setColumns(10);
 		
 		JLabel post5 = new JLabel("SKAPAD (ej obligatorisk)");
-		add(post5, "cell 1 2,alignx left,aligny center");
+		post5.setBounds(23, 58, 116, 14);
+		add(post5);
 		
 		textF1_5 = new JTextField();
-		add(textF1_5, "cell 2 2,growx,aligny top");
+		textF1_5.setBounds(172, 55, 212, 20);
+		add(textF1_5);
 		textF1_5.setColumns(10);
 		
 		JLabel post6 = new JLabel("PROGRAM (ej obligatorisk)");
-		add(post6, "cell 1 3,alignx left,aligny center");
+		post6.setBounds(23, 82, 127, 14);
+		add(post6);
 		
 		textF1_6 = new JTextField();
-		add(textF1_6, "cell 2 3,growx,aligny top");
+		textF1_6.setBounds(172, 79, 212, 20);
+		add(textF1_6);
 		textF1_6.setColumns(10);
 		
 		JLabel post7 = new JLabel("FILNAMN (en post)");
-		add(post7, "cell 1 4,alignx left,aligny center");
+		post7.setBounds(23, 106, 91, 14);
+		add(post7);
 		
 		textF1_7 = new JTextField();
-		add(textF1_7, "cell 2 4,growx,aligny top");
+		textF1_7.setBounds(172, 103, 212, 20);
+		add(textF1_7);
 		textF1_7.setColumns(10);
 		
 		JLabel post10 = new JLabel("ORGNR");
-		add(post10, "cell 1 5,alignx left,aligny center");
+		post10.setBounds(23, 130, 36, 14);
+		add(post10);
 		
 		textF1_10 = new JTextField();
-		add(textF1_10, "cell 2 5,growx,aligny top");
+		textF1_10.setBounds(172, 127, 212, 20);
+		add(textF1_10);
 		textF1_10.setColumns(10);
 		
 		JLabel post11 = new JLabel("NAMN");
-		add(post11, "cell 1 6,alignx left,aligny center");
+		post11.setBounds(23, 154, 29, 14);
+		add(post11);
 		
 		textF1_11 = new JTextField();
-		add(textF1_11, "cell 2 6,growx,aligny top");
+		textF1_11.setBounds(172, 151, 212, 20);
+		add(textF1_11);
 		textF1_11.setColumns(10);
 		
 		JLabel post12 = new JLabel("ADRESS (ej obligatorisk)");
-		add(post12, "cell 1 7,alignx left,aligny center");
+		post12.setBounds(23, 178, 116, 14);
+		add(post12);
 		
 		textF1_12 = new JTextField();
-		add(textF1_12, "cell 2 7,growx,aligny top");
+		textF1_12.setBounds(172, 175, 212, 20);
+		add(textF1_12);
 		textF1_12.setColumns(10);
 		
 		JLabel post13 = new JLabel("POSTNR");
-		add(post13, "cell 1 8,alignx left,aligny center");
+		post13.setBounds(23, 202, 40, 14);
+		add(post13);
 		
 		textF1_13 = new JTextField();
-		add(textF1_13, "cell 2 8,growx,aligny top");
+		textF1_13.setBounds(172, 199, 212, 20);
+		add(textF1_13);
 		textF1_13.setColumns(10);
 		
 		JLabel post14 = new JLabel("POSTORT");
-		add(post14, "cell 1 9,alignx left,aligny center");
+		post14.setBounds(23, 226, 47, 14);
+		add(post14);
 		
 		textF1_14 = new JTextField();
-		add(textF1_14, "cell 2 9,growx,aligny top");
+		textF1_14.setBounds(172, 223, 212, 20);
+		add(textF1_14);
 		textF1_14.setColumns(10);
 		
 		JLabel post15 = new JLabel("AVDELNING (ej obligatorisk)");
-		add(post15, "cell 1 10,alignx left,aligny center");
+		post15.setBounds(23, 250, 133, 14);
+		add(post15);
 		
 		textF1_15 = new JTextField();
-		add(textF1_15, "cell 2 10,growx,aligny top");
+		textF1_15.setBounds(172, 247, 212, 20);
+		add(textF1_15);
 		textF1_15.setColumns(10);
 		
 		label = new JLabel("    ");
-		add(label, "cell 0 11,alignx left,aligny center");
+		label.setBounds(7, 274, 12, 14);
+		add(label);
 		
 		JLabel post16 = new JLabel("KONTAKT (ej obligatorisk)");
-		add(post16, "cell 1 11,alignx left,aligny center");
+		post16.setBounds(23, 274, 123, 14);
+		add(post16);
 		
 		textF1_16 = new JTextField();
-		add(textF1_16, "cell 2 11,growx,aligny top");
+		textF1_16.setBounds(172, 271, 212, 20);
+		add(textF1_16);
 		textF1_16.setColumns(10);
 		
-		JLabel post17 = new JLabel("17.#EMAIL (ej obligatorisk)");
-		add(post17, "cell 1 12,alignx left,aligny center");
+		JLabel post17 = new JLabel("EMAIL (ej obligatorisk)");
+		post17.setBounds(23, 298, 131, 14);
+		add(post17);
 		
 		textF1_17 = new JTextField();
-		add(textF1_17, "cell 2 12,growx,aligny top");
+		textF1_17.setBounds(172, 295, 212, 20);
+		add(textF1_17);
 		textF1_17.setColumns(10);
 		
-		JLabel lblNewLabel_17 = new JLabel("18.#TELEFON (ej obligatorisk)");
-		add(lblNewLabel_17, "cell 1 13,alignx left,aligny center");
+		JLabel lblNewLabel_17 = new JLabel("TELEFON (ej obligatorisk)");
+		lblNewLabel_17.setBounds(23, 322, 145, 14);
+		add(lblNewLabel_17);
 		
 		textF1_18 = new JTextField();
-		add(textF1_18, "cell 2 13,growx,aligny top");
+		textF1_18.setBounds(172, 319, 212, 20);
+		add(textF1_18);
 		textF1_18.setColumns(10);
 		
-		JLabel post18 = new JLabel("19.#FAX (ej obligatorisk)");
-		add(post18, "cell 1 14,alignx left,aligny center");
+		JLabel post18 = new JLabel("FAX (ej obligatorisk)");
+		post18.setBounds(23, 346, 120, 14);
+		add(post18);
 		
 		textF1_19 = new JTextField();
-		add(textF1_19, "cell 2 14,growx,aligny top");
+		textF1_19.setBounds(172, 343, 212, 20);
+		add(textF1_19);
 		textF1_19.setColumns(10);
 		
 		btnSkicka = new JButton("spara");
+		btnSkicka.setBounds(431, 6, 116, 42);
 		
 		btnSkicka.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-	
-				SRU_info nyinfo = new SRU_info(textF1_2.getText(), textF1_7.getText(),textF1_10.getText(),textF1_11.getText(),textF1_13.getText(),textF1_14.getText());
-				nyinfo.setMediaId(textF1_4.getText());
-				nyinfo.setSkapad(textF1_5.getText());
-				nyinfo.setProgram(textF1_6.getText());
-				nyinfo.setAdress(textF1_12.getText());
-				nyinfo.setAvdelning(textF1_15.getText());
-				nyinfo.setKontakt(textF1_16.getText());
-				nyinfo.setEmail(textF1_17.getText());
-				nyinfo.setTelefon(textF1_18.getText());
-				nyinfo.setFax(textF1_19.getText());
-				mintext = nyinfo.getSruText();		
+				infoSruController nyinfo = new infoSruController();
+				String text = nyinfo.skapaInfoSRU(textF1_2.getText(), textF1_4.getText(), textF1_5.getText(), textF1_12.getText()
+						, textF1_6.getText(), textF1_7.getText(), textF1_10.getText(), textF1_11.getText()
+						, textF1_13.getText(), textF1_14.getText(), textF1_15.getText(), textF1_16.getText(),
+						textF1_17.getText(), textF1_18.getText(), textF1_19.getText());
+						
 							try {
-								MainGUI.printToFile("info.sru",mintext);
+								MainGUI.printToFile("info.sru",text);
 							} catch (IOException e1) {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
@@ -183,9 +214,40 @@ public class INFOSRU extends JPanel {
 				
 			}
 		});
-		add(btnSkicka, "cell 1 15,alignx left,aligny top");
+		add(btnSkicka);
+		
+		btnVisaFil = new JButton("visa fil");
+		btnVisaFil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					MainGUI.ShowSRUFile();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		btnVisaFil.setBounds(431, 73, 116, 47);
+		add(btnVisaFil);
+		
+		btnLaddaFil = new JButton("ladda fil");
+		btnLaddaFil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					MainGUI.LoadSRUFile();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnLaddaFil.setBounds(431, 150, 116, 42);
+		add(btnLaddaFil);
 
 	}
+	
+	
 	
 	
 }
