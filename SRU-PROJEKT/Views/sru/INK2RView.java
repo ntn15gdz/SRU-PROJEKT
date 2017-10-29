@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 import javax.swing.border.LineBorder;
+
+import dao.FileManager;
+
 import java.awt.Color;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
@@ -189,6 +192,7 @@ public class INK2RView extends JPanel {
 	private JTextField namnField;
 	private JTextField blankett;
 	public INK2RView() {
+		FileManager srudao = new FileManager();
 		setPreferredSize(new Dimension(939, 1941));
 		
 		JButton btnSpara = new JButton("spara");
@@ -211,7 +215,7 @@ public class INK2RView extends JPanel {
 				}
 				
 				try {
-					MainGUI.printToFile("//blanketter.sru", form.toString());
+					srudao.printToFile("//blanketter.sru", form.toString());
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -1542,7 +1546,7 @@ public class INK2RView extends JPanel {
 		btnVisa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					MainGUI.ShowSRUFile();
+					srudao.ShowSRUFile();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
